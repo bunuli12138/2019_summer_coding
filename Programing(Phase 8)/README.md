@@ -24,6 +24,7 @@ Participated in some competitions, including TianChi, AIStudio, Kesci and Kaggle
 | Task1 | Aug.3ed-Aug.5th | Array & Linged List | Null | Null |  
 
 ## Files Links  
+> Get Mr.Ma's advise, __pause__ C Language implement
 ### Task1
-[C application](./C/Task1)  
+[**C application](./C/Task1)  
 [Python3 application](./Python/Task1)  
