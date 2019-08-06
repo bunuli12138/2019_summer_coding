@@ -21,10 +21,14 @@ Participated in some competitions, including TianChi, AIStudio, Kesci and Kaggle
 
 | ID | Time | Title | Finished Time | Result |   
 | --- | --- | --- | --- | --- |   
-| Task1 | Aug.3ed-Aug.5th | Array & Linged List | Null | Null |  
+| Task1 | Aug.3rd-Aug.5th | Array & Linged List | Null | Failed |  
+| Task2 | Aug.5th-Aug.9th | Stack + Queue + Recursion | Null | Null |  
 
 ## Files Links  
 > Get Mr.Ma's advise, __pause__ C Language implement
 ### Task1
 [**C application](./C/Task1)  
 [Python3 application](./Python/Task1)  
+
+### Task2
+[Python3 application](./Python/Task2)  
