@@ -18,7 +18,7 @@
 ## 1.Merge Two arrays into One
 ## 2.Ordered arrays with fixed size & Dynamic ADMS(Addition, Deletion, Modification, Search)
 ## 3.Hash Thought & Test
-Class t1_array(list):
+class t1_array:
     '''define'''
     def __init__(self,*args,size=None,fixed=False):
         # fixed or not
@@ -185,13 +185,14 @@ Class t1_array(list):
 ## 2.Single Linked List Reversal
 ## 3.Merge two Linked List into one
 ## 4.Search the MID node of Linked List
-Class t1_linked_list():
+class t1_linked_list:
     def __init__(self, data, nxt=None):
         self.val = data
         self.next = nxt
         
     def append(self):
         pass
+    
     def delete(self):
         pass
     
@@ -202,12 +203,13 @@ Class t1_linked_list():
         pass
         
         
-if __name__ = '__main__':
-    #创建一个单链表结构
+if __name__ == '__main__':
+    head = None
+    # initialize
     for count in range(1,6):
         head = t1_linked_list(count,head)
     
-    #输出节点内容，输出完后，单链表结构也销毁了
+    # output data of linked list
     while head != None:
         print(head.data)  #输出：5, 4, 3, 2, 1
         head = head.next

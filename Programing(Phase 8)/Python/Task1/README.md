@@ -31,3 +31,14 @@
 - Merge k Sorted Lists（合并 k 个排序链表）
 [英文版](https://leetcode.com/problems/merge-k-sorted-lists/)
 [中文版](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+#### Result(Aug.9th)
+
+| Task | Result | Degree |  
+| --- | --- | --- |  
+| Three Sum | Right | 100% |  
+| Majority Element | Right | --- |  
+| <font color=gray>Missing Positive</font>`Optional` | Not | 0% |  
+| Linked List Cycle I | Right | 100% |  
+| Merge k Sorted Lists | Failed | 30%(result test) |  
+   
