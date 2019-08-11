@@ -22,11 +22,57 @@
 | H       | Math       |  
 | I       | Math       |  
 | A       | Math       |  
+```mysql
+/*Create Table*/
+CREATE TABLE courses 
+( student VARCHAR(8) NOT NULL, class VARCHAR(255) );
+
+/*INSERT Value*/
+INSERT INTO
+courses 
+VALUES('A','Math'); 
+INSERT INTO 
+courses 
+VALUES('B','English'); 
+INSERT INTO 
+courses 
+VALUES('C','Math');
+INSERT INTO
+courses 
+VALUES('D','Biology'); 
+INSERT INTO 
+courses 
+VALUES('E','English'); 
+INSERT INTO 
+courses 
+VALUES('F','Math');
+INSERT INTO
+courses 
+VALUES('G','Math'); 
+INSERT INTO 
+courses 
+VALUES('H','English'); 
+INSERT INTO 
+courses 
+VALUES('I','Math');
+INSERT INTO 
+courses 
+VALUES('A','Math');
+```
+
 
 - 编写一个 SQL 查询，列出所有超过或等于5名学生的课。 应该输出:
 
-| class   | Math    |
-| --- | --- |
+| class   |
+| --- |
+| Math    |
+
+```mysql
+SELECT class
+FROM courses
+GROUP BY class
+HAVING COUNT(Email)>=5;
+```
 
 \* Note: 学生在每个课中不应被重复计算。
 
@@ -40,6 +86,26 @@
 | 3  | C    | m   | 5500   |  
 | 4  | D    | f   | 500    |  
 
+```mysql
+/*Create Table*/
+CREATE TABLE salary 
+( id INT NOT NULL, name VARCHAR(8), sex VARCHAR(8), salary DOUBLE );
+
+/*INSERT Value*/
+INSERT INTO
+salary 
+VALUES(1,'A','m',2500); 
+INSERT INTO 
+salary 
+VALUES(2,'B','f',1500); 
+INSERT INTO 
+salary 
+VALUES(3,'C','m',5500);
+INSERT INTO
+salary 
+VALUES(4,'D','f',500); 
+```
+
 交换所有的 f 和 m 值(例如，将所有 f 值更改为 m，反之亦然)。
 要求使用一个更新查询，并且没有中间临时表。 运行你所编写的查询语句之后，将会得到以下表: 
 
@@ -49,6 +115,10 @@
 | 2  | B    | m   | 1500   | 
 | 3  | C    | f   | 5500   | 
 | 4  | D    | m   | 500    |
+
+```mysql
+
+```
 
 ## 项目五：有趣的电影 （难度：简单）
 编写一个 SQL查询，找出所有影片描述为非 boring (不无聊) 的并且 id 为奇数 的影片，结果请按等级 rating 排列。
@@ -63,11 +133,40 @@
 |   4     | Ice song  |   Fantacy    |   8.6     | 
 |   5     | House card|   Interesting|   9.1     |
 
+```mysql
+/*Create Table*/
+CREATE TABLE cinema 
+( id INT NOT NULL, name VARCHAR(32), description VARCHAR(64), rating DOUBLE );
+
+/*INSERT Value*/
+INSERT INTO
+cinema 
+VALUES(1,'War','great 3D',8.9); 
+INSERT INTO 
+cinema 
+VALUES(2,'Science','fiction',8.5); 
+INSERT INTO 
+cinema 
+VALUES(3,'irish','boring',6.2);
+INSERT INTO
+cinema 
+VALUES(4,'Ice song','Fantacy',8.6); 
+INSERT INTO
+cinema 
+VALUES(5,'House card','Interesting',9.1); 
+```
+
 对于上面的例子，则正确的输出是为：
 
 |   id    | movie     |  description |  rating   |
 |   5     | House card|   Interesting|   9.1     | 
 |   1     | War       |   great 3D   |   8.9     |
+
+```mysql
+SELECT *
+FROM cinema
+WHERE description!="boring";
+```
 
 
 # 三.表联结
