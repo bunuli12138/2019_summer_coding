@@ -1,5 +1,5 @@
 ## Details Of Requirements 
-### Task4:Hash & String(Aug.12th-Aug.16th)
+### Task4:Hash & String(Aug.12th-Aug.15th)
 #### Content  
 - 【散列表（哈希表）】
     - 实现一个基于链表法解决冲突问题的散列表
