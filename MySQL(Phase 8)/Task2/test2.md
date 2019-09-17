@@ -8,7 +8,8 @@
     修改列名     修改表中数据     删除行     删除列     新建列     新建行
 ```
 ## 项目三：超过5名学生的课（难度：简单）
-- 创建如下所示的courses 表 ，有: student (学生) 和 class (课程)。 表:
+- 创建如下所示的courses 表 ，有: student (学生) 和 class (课程)。 
+表:
 
 | student | class |  
 | --- | --- |  
@@ -42,23 +43,29 @@ INSERT INTO courses VALUES('A','Math');
 
 
 - 编写一个 SQL 查询，列出所有超过或等于5名学生的课。 应该输出:
+```mysql
+SELECT class
+FROM courses
+GROUP BY class
+WHERE COUNT(DISTINCT class) >= 5;  --unique值
+```
 
 | class   |
 | --- |
 | Math    |
 
 ```mysql
-/* To Do 3*/
+/* To Do 3 */
 SELECT class
 FROM courses
 GROUP BY class
-HAVING COUNT(Email)>=5;
+HAVING COUNT(DISTINCT Email)>=5;
 ```
 
 \* Note: 学生在每个课中不应被重复计算。
 
 ## 项目四：交换工资（难度：简单）
-创建一个 salary表，如下所示，有m=男性 和 f=女性的值 。 例如:
+创建一个 salary 表，如下所示，有m=男性 和 f=女性的值 。 例如:
  
 | id | name | sex | salary |  
 |----|------|-----|--------|  
@@ -86,6 +93,14 @@ INSERT INTO salary VALUES(4,'D','f',500);
 要求使用一个更新查询，并且没有中间临时表。 
 运行你所编写的查询语句之后，将会得到以下表: 
 
+```mysql
+UPDATE salary
+SET sex = CASE
+            WHEN sex = 'f' THEN 'm'
+            ELSE 'f'
+            END
+```
+
 | id | name | sex | salary | 
 |----|------|-----|--------| 
 | 1  | A    | f  | 2500   | 
@@ -95,15 +110,11 @@ INSERT INTO salary VALUES(4,'D','f',500);
 
 ```mysql
 /* To Do 4*/
-SELECT * FROM salary    --初始表格
-
 UPDATE  salary
 SET     sex = CASE
                 WHEN    sex = 'f' THEN 'm'
                 ELSE    'f'
                 END
-                
-SELECT * FROM salary    --查看结果
 ```
 
 ## 项目五：有趣的电影 （难度：简单）
@@ -112,9 +123,9 @@ SELECT * FROM salary    --查看结果
 
 例如，下表 cinema:
 
-|   id    | movie     |  description |  rating   |
-| --- | --- | --- | --- |
-|   1     | War       |   great 3D   |   8.9     | 
+|   id    | movie     |  description |  rating   |  
+| --- | --- | --- | --- |  
+|   1     | War       |   great 3D   |   8.9     |   
 |   2     | Science   |   fiction    |   8.5     | 
 |   3     | irish     |   boring     |   6.2     | 
 |   4     | Ice song  |   Fantacy    |   8.6     | 
@@ -137,9 +148,18 @@ INSERT INTO cinema VALUES(5,'House card','Interesting',9.1);
 
 对于上面的例子，则正确的输出是为：
 
-|   id    | movie     |  description |  rating   |
-|   5     | House card|   Interesting|   9.1     | 
-|   1     | War       |   great 3D   |   8.9     |
+```mysql
+SELECT *
+FROM cinema
+WHERE description != 'boring'
+        AND MOD(id, 2) = 1    --奇数
+ORDER BY rating DESC
+```
+
+|   id    | movie     |  description |  rating   |  
+| --- | --- | --- | --- |
+|   5     | House card|   Interesting|   9.1     |   
+|   1     | War       |   great 3D   |   8.9     |  
 
 ```mysql
 SELECT * FROM cinema 
@@ -267,11 +287,12 @@ WHERE Id NOT IN
 Employee 表包含所有员工，他们的经理也属于员工。
 每个员工都有一个 Id，此外还有一列对应员工的经理的 Id。
 
-| Id | Name  | Salary | ManagerId | 
-| 1  | Joe   | 70000  | 3         | 
-| 2  | Henry | 80000  | 4         | 
-| 3  | Sam   | 60000  | NULL      | 
-| 4  | Max   | 90000  | NULL      | 
+| Id | Name  | Salary | ManagerId |   
+| --- | --- | --- | --- |
+| 1  | Joe   | 70000  | 3         |   
+| 2  | Henry | 80000  | 4         |   
+| 3  | Sam   | 60000  | NULL      |   
+| 4  | Max   | 90000  | NULL      |   
 
 - 给定 Employee 表，编写一个 SQL 查询，
 该查询可以获取收入超过他们经理的员工的姓名。
